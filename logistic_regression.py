@@ -39,8 +39,9 @@ print("y train: ",y_train.shape)
 print("y test: ",y_test.shape)
 #%% logistic regression create model and train test accuracy print
 logreg = LogisticRegression(random_state = 42,max_iter= 150)
-print("test accuracy: {} ".format(logreg.fit(x_train.T, y_train.T).score(x_test.T, y_test.T)))
-print("train accuracy: {} ".format(logreg.fit(x_train.T, y_train.T).score(x_train.T, y_train.T)))
+logreg.fit(x_train.T, y_train.T)
+print("test accuracy: {} ".format(logreg.score(x_test.T, y_test.T)))
+print("train accuracy: {} ".format(logreg.score(x_train.T, y_train.T)))
 
 
 #%%
