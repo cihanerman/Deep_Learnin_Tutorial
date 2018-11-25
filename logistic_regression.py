@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-from sklearn import linear_model
+from sklearn.linear_model import LogisticRegression
 #%% import data
 x_l = np.load('X.npy')
 y_l = np.load('Y.npy')
@@ -38,7 +38,7 @@ print("x test: ",x_test.shape)
 print("y train: ",y_train.shape)
 print("y test: ",y_test.shape)
 #%% logistic regression create model and train test accuracy print
-logreg = linear_model.LogisticRegression(random_state = 42,max_iter= 150)
+logreg = LogisticRegression(random_state = 42,max_iter= 150)
 print("test accuracy: {} ".format(logreg.fit(x_train.T, y_train.T).score(x_test.T, y_test.T)))
 print("train accuracy: {} ".format(logreg.fit(x_train.T, y_train.T).score(x_train.T, y_train.T)))
 
