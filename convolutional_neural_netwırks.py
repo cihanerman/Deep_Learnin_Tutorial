@@ -12,7 +12,6 @@ train.head()
 test = pd.read_csv('test.csv')
 print('test shape: ',test.shape)
 test.head()
-
 #%% data splite Y_train and X_train
 Y_train = train['label']
 # print(Y_train)
@@ -126,7 +125,6 @@ datagen = ImageDataGenerator(
     vertical_flip = False
 )
 datagen.fit(X_train)
-
 
 #%% fit model
 history = model.fit_generator(datagen.flow(X_train, Y_train, batch_size = batch_size), epochs = epochs, validation_data = (X_val, Y_val), steps_per_epoch = X_train.shape[0] // batch_size)
